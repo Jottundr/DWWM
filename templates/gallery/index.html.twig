@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aperture - Gallery
+{% endblock %}
+
+{% block body %}
+	<section class="gallery">
+		<h1>Gallery</h1>
+		<img src="{{ asset('build/images/2.jpg') }}" alt="">
+		<div class="wrapper">
+			{% for post in posts %}
+				<div class="card">
+					<img src="{{ asset('build/images/6.jpg') }}" alt="">
+					<div class="header">
+						<div class="date">
+							<span class="day">{{ post.createdAt|date('d') }}</span>
+							<span class="month">{{ post.createdAt|date('M') }}</span>
+							<span class="year">{{ post.createdAt|date('Y') }}</span>
+						</div>
+						<ul class="menu-content">
+							<li>
+								<a href="#" class="far fa-bookmark"></a>
+							</li>
+							<li>
+								<a href="#" class="far fa-heart">
+									<span>18</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="far fa-comment">
+									<span>{{ post.comments|length }}</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="data">
+						<div class="content">
+							<span class="author">
+								{{ post.author.firstName }}
+								{{ post.author.lastName }}
+							</span>
+							<h2 class="title">
+								<a href="#">{{ post.title }}</a>
+							</h2>
+							<p class="text">{{ post.description }}</p>
+							<a href="#" class="button">Read more...</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

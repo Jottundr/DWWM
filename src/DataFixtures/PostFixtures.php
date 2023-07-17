@@ -3,7 +3,6 @@
 namespace App\DataFixtures;
 
 use App\Entity\Post;
-use DateTimeImmutable;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -16,7 +15,6 @@ class PostFixtures extends Fixture implements DependentFixtureInterface
         $post->setTitle('Crowded Time Square');
         $post->setImage('6.jpg');
         $post->setDescription('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ut rem magnam culpa laudantium beatae natus unde, assumenda incidunt illo cum earum deserunt enim est excepturi pariatur ad totam similique.');
-        $post->setCreatedAt(new DateTimeImmutable());
         $post->setAuthor($this->getReference('ApertureFan99'));
         $this->addReference($post->getTitle(), $post);
         $manager->persist($post);
