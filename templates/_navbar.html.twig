@@ -5,6 +5,15 @@
 		<a href="/">Home</a>
 		<a href="/gallery">Gallery</a>
 		<a href="#">Explore</a>
-		<a href="#">Sign In</a>
+{% if app.user %}
+<a href="">
+{{app.user.email}}
+</a>
+<a href="/logout">se deconnecter</a>
+{% else %}
+		<a href="/login">Sign In</a>
+{% endif %}
+
+
 	</div>
 </div>
