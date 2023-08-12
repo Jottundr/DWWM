@@ -1,0 +1,19 @@
+<a href="/" class="logo">APERTURE</a>
+<div class="burger-menu"></div>
+<div class="navbar">
+	<div class="nav-links">
+		<a href="/">Home</a>
+		<a href="/gallery">Gallery</a>
+		<a href="#">Explore</a>
+{% if app.user %}
+<a href="">
+{{app.user.email}}
+</a>
+<a href="/logout">se deconnecter</a>
+{% else %}
+		<a href="/login">Sign In</a>
+{% endif %}
+
+
+	</div>
+</div>
